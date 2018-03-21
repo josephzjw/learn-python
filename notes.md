@@ -41,4 +41,4 @@ s.remove(2)
 s1 & s2
 s1 | s2
 ```
-`set`,`str`是不可变对象，`list`是可变对象
+`set`,`str`是不可变对象，`list`是可变对象 

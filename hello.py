@@ -4,4 +4,4 @@ s.add(4)
 print(s)
 s.remove(2)
 s1 & s
-s1 | s
+s1 | s 

@@ -1,7 +1,8 @@
-s = set([1,1,2,3])
-s1 = set([9])
-s.add(4)
-print(s)
-s.remove(2)
-s1 & s
-s1 | s 
+def move(n, a, b, c):
+    if n == 1:
+        print(a, '-->', c)
+    else:
+        move(n-1, a, c, b)
+        move(1, a, b, c)
+        move(n-1, b, a, c)
+move(3, 'A', 'B', 'C')

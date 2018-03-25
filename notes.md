@@ -245,3 +245,101 @@ def move(n, a, b, c):
         move(n-1, b, a, c)
 move(3, 'A', 'B', 'C')
 ```
+
+# [Advanced Property](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014317568446245b3e1c8837414168bcd2d485e553779e000)
+
+## Slice
+
+### Homework
+```python
+def trim(s):
+    numOfLength = len(s)
+    cnt = 0
+    while cnt < numOfLength:
+        if s[0] == ' ':
+            s = s[1:]
+            cnt = cnt + 1
+        else:
+            break
+    cnt = 0
+    numOfLength = len(s)
+    while cnt < numOfLength:
+        if s[-1] == ' ':
+            s = s[:-1]
+            cnt = cnt + 1
+        else:
+            break
+    s = ' '+s+' '
+    return s[1:-1]
+
+
+# 测试:
+if trim('hello  ') != 'hello':
+    print('测试失败!')
+elif trim('  hello') != 'hello':
+    print('测试失败!')
+elif trim('  hello  ') != 'hello':
+    print('测试失败!')
+elif trim('  hello  world  ') != 'hello  world':
+    print('测试失败!')
+elif trim('') != '':
+    print('测试失败!')
+elif trim('    ') != '':
+    print('测试失败!')
+else:
+    print('测试成功!')
+
+```
+#### 网上的标答
+```python
+def trim(s):
+    while s[:1] == ' ':
+        s = s[1:]
+    while s[-1:] == ' ':
+        s = s[:-1]
+    return s
+```
+
+## Iterate
+* 判断一个对象是否可以迭代
+```python
+from collections import Iterable
+print(isinstance('abc',Iterable))
+print(isinstance(123,Iterable))
+```
+* 下标循环
+```python
+for i, value in enumerate(['A', 'B', 'C']):
+    print(i,value)
+```
+
+### Homework
+```python
+def findMinAndMax(L):
+    if len(L) == 0:
+        return (None, None)
+    else:
+        l = []
+        for x in L:
+            l.append((x,x))
+        numMin = L[0]
+        numMax = L[0]
+        for tmpMin,tmpMax in l:
+            if tmpMin < numMin:
+                numMin = tmpMin
+            if tmpMax > numMax:
+                numMax = tmpMax
+        return (numMin, numMax)
+
+# 测试
+if findMinAndMax([]) != (None, None):
+    print('测试失败!')
+elif findMinAndMax([7]) != (7, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1]) != (1, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
+    print('测试失败!')
+else:
+    print('测试成功!')
+```
